@@ -1,7 +1,10 @@
 #!/usr/bin/python
+# Python 3
+
 # Example using a character LCD plate.
 import time
 
+#FIXME libraries are not yet committed
 import Adafruit_CharLCD as LCD
 
 import Adafruit_DHT as dht
@@ -20,13 +23,13 @@ print('Starting data query, every' + SECONDS_TO_SLEEP + 'seconds')
 while True:
     H, T = dht.read_retry(dht.DHT22, GPIO_PORT)
     PLATE.clear()
-    PLATE.message('Temp={0:0.1f}*C'.format(T))
+    TEMP_MSG = 'Temp={0:0.1f}*C'.format(T)
+    PLATE.message(TEMP_MSG)
 
     PLATE.set_cursor(0, 1)
-    PLATE.message('Humidity={0:0.1f}%'.format(H))
+    HUM_MSG = 'Humidity={0:0.1f}%'.format(H)
+    PLATE.message(HUM_MSG)
 
-    print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(T, H))
+    print(TEMP_MSG)
+    print(HUM_MSG)
     time.sleep(SECONDS_TO_SLEEP)
-
-
-
