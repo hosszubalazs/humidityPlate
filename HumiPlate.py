@@ -7,21 +7,26 @@ import Adafruit_CharLCD as LCD
 import Adafruit_DHT as dht
 
 # Initialize the LCD using the pins
-lcd = LCD.Adafruit_CharLCDPlate()
+PLATE = LCD.Adafruit_CharLCDPlate()
 
-lcd.set_color(0, 0.0, 0.5)
+#GPIO setup
+GPIO_PORT = 3
 
-print 'jon a parti'
-while(True):
-        h,t = dht.read_retry(dht.DHT22,4)
-	lcd.clear()
-	lcd.message('Temp={0:0.1f}*C'.format(t))
-	
-	lcd.set_cursor(0,1);
-	lcd.message('Humidity={0:0.1f}%'.format(h))
+SECONDS_TO_SLEEP = 3
 
-        print 'Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(t, h)
-        time.sleep(3)
+PLATE.set_color(0, 0.0, 0.5)
+
+print('Starting data query, every' + SECONDS_TO_SLEEP + 'seconds')
+while True:
+    H, T = dht.read_retry(dht.DHT22, GPIO_PORT)
+    PLATE.clear()
+    PLATE.message('Temp={0:0.1f}*C'.format(T))
+
+    PLATE.set_cursor(0, 1)
+    PLATE.message('Humidity={0:0.1f}%'.format(H))
+
+    print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(T, H))
+    time.sleep(SECONDS_TO_SLEEP)
 
 
 
