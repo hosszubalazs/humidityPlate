@@ -5,7 +5,7 @@
 import time
 
 #FIXME libraries are not yet committed
-import Adafruit_CharLCD as LCD
+import Adafruit_GPIO.Adafruit_CharLCD as LCD
 
 import Adafruit_DHT as dht
 
@@ -15,7 +15,7 @@ PLATE = LCD.Adafruit_CharLCDPlate()
 #GPIO setup
 GPIO_PORT = 3
 
-SECONDS_TO_SLEEP = 3
+SECONDS_TO_SLEEP = 4
 
 PLATE.set_color(0, 0.0, 0.5)
 
