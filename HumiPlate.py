@@ -13,13 +13,13 @@ import Adafruit_DHT as dht
 PLATE = LCD.Adafruit_CharLCDPlate()
 
 #GPIO setup
-GPIO_PORT = 3
+GPIO_PORT = 4
 
 SECONDS_TO_SLEEP = 4
 
 PLATE.set_color(0, 0.0, 0.5)
 
-print('Starting data query, every' + SECONDS_TO_SLEEP + 'seconds')
+print('Starting data query, every ' + str(SECONDS_TO_SLEEP) + ' seconds')
 while True:
     H, T = dht.read_retry(dht.DHT22, GPIO_PORT)
     PLATE.clear()
