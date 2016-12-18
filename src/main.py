@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # Python 3
-import Adafruit_DHT as dht
+import Adafruit_DHT.Adafruit_DHT as dht
 import Adafruit_GPIO.Adafruit_CharLCD as LCDLibrary
 import time
-import DHTDataParser
+import DHTDataParser as dataParser
 
 
 def init_lcd():
@@ -12,9 +12,9 @@ def init_lcd():
     return lcd
 
 def init_dht():
-    DHT_GPIO = 4
-    SECONDS_TO_SLEEP = 4
-    return (DHT_GPIO, SECONDS_TO_SLEEP)
+    dht_gpio = 4
+    seconds_to_sleep = 4
+    return (dht_gpio, seconds_to_sleep)
 
 
 #If the script is run directly, let's start measurement
@@ -26,8 +26,9 @@ if __name__ == '__main__':
 
     while True:
         H, T = dht.read_retry(dht.DHT22, DHT_GPIO)
-        H_MSG, T_MSG = ('Humidity='+parseHumidity(H),'Temperature='+ parseTemp(T))
-       
+        H_MSG = 'Humidity='+dataParser.parseHumidity(H)
+        T_MSG = 'Temperature='+ dataParser.parseTemp(T)
+
         LCD.clear()
         LCD.message('Temperature='+ T_MSG)
         print(T_MSG)
