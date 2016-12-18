@@ -1,37 +1,35 @@
 #!/usr/bin/python
 # Python 3
 import Adafruit_DHT as dht
-import Adafruit_GPIO.Adafruit_CharLCD as LCD
+import Adafruit_GPIO.Adafruit_CharLCD as LCDLibrary
 import time
-import DHTParser
+import DHTDataParser
 
-def initLCD():
-    PLATE = LCD.Adafruit_CharLCDPlate()
-    PLATE.set_color(0, 0.0, 0.5)
 
-def initDHT():
-    #GPIO setup
+def init_lcd():
+    lcd = LCDLibrary.Adafruit_CharLCDPlate()
+    lcd.set_color(0, 0.0, 0.5)
+    return lcd
+
+def init_dht():
     DHT_GPIO = 4
     SECONDS_TO_SLEEP = 4
-
-def initInstrumentation():
-    print("Let's initilaie instrumenation")
-    initLCD
-    initDHT
+    return (DHT_GPIO, SECONDS_TO_SLEEP)
 
 
 #If the script is run directly, let's start measurement
 if __name__ == '__main__':
+    DHT_GPIO, SECONDS_TO_SLEEP = init_dht()
+    LCD = init_lcd()
+
     print('Starting data query, every ' + str(SECONDS_TO_SLEEP) + ' seconds')
-    initInstrumentation
+
     while True:
         H, T = dht.read_retry(dht.DHT22, DHT_GPIO)
-        PLATE.clear()
-        PLATE.message('Temperature='+ parseTemp(T))
+        LCD.clear()
+        LCD.message('Temperature='+ parseTemp(T))
 
-        PLATE.set_cursor(0, 1)
-        PLATE.message('Humidity='+parseHumidity(H))
+        LCD.set_cursor(0, 1)
+        LCD.message('Humidity='+parseHumidity(H))
 
-        print(TEMP_MSG)
-        print(HUM_MSG)
         time.sleep(SECONDS_TO_SLEEP)
