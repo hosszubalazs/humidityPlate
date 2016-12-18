@@ -10,6 +10,7 @@ def parseHumidity(value):
 def parseWithUnit(value, unit):
     return '{0:0.1f}'.format(value)+unit
 
+#push hook test
 
 def initInstrumentation():
     import Adafruit_GPIO.Adafruit_CharLCD as LCD
