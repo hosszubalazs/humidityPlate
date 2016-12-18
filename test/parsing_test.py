@@ -1,5 +1,5 @@
 import unittest
-import src.HumiPlate as humi
+import src.DHTDataParser as humi
 
 class TestParsing(unittest.TestCase):
 
