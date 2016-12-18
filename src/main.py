@@ -26,10 +26,14 @@ if __name__ == '__main__':
 
     while True:
         H, T = dht.read_retry(dht.DHT22, DHT_GPIO)
+        H_MSG, T_MSG = ('Humidity='+parseHumidity(H),'Temperature='+ parseTemp(T))
+       
         LCD.clear()
-        LCD.message('Temperature='+ parseTemp(T))
+        LCD.message('Temperature='+ T_MSG)
+        print(T_MSG)
 
         LCD.set_cursor(0, 1)
-        LCD.message('Humidity='+parseHumidity(H))
+        LCD.message(H_MSG)
+        print(H_MSG)
 
         time.sleep(SECONDS_TO_SLEEP)
