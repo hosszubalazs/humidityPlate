@@ -32,6 +32,11 @@ class TestParsing(unittest.TestCase):
         parsed = humi.parseHumidity(5)
         expected =  '5.0*%'
         self.assertEqual(expected, parsed)
+
+    def testIShouldFail(self):
+        parsed = humi.parseHumidity(5)
+        expected =  'sdfsd5.0*%'
+        self.assertEqual(expected, parsed)
     
 
 def main():
