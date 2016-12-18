@@ -7,6 +7,11 @@ import DHTDataParser as dataParser
 import constants as c
 import LCDHelper as lcdHelper
 
+def init_lcd():
+    lcd = LCDLibrary.Adafruit_CharLCDPlate()
+    lcd.set_color(c.LCD_COLD_BLUE)
+    return lcd
+
 #If the script is run directly, let's start measurement
 if __name__ == '__main__':
     LCD = lcdHelper.init_lcd()

@@ -1,8 +1,4 @@
-import Adafruit_GPIO.Adafruit_CharLCD as LCDLibrary
-def init_lcd():
-    lcd = LCDLibrary.Adafruit_CharLCDPlate()
-    lcd.set_color(c.LCD_COLD_BLUE)
-    return lcd
+import constants as c
 
 def map_heat_to_bgcolor(tempr):
     if tempr < 18:
