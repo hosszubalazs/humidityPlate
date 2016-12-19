@@ -4,9 +4,9 @@
 import Adafruit_DHT as dht
 import Adafruit_GPIO.Adafruit_CharLCD as LCDLibrary
 import time
-import DHTDataParser as dataParser
-import constants as c
-import LCDHelper as lcdHelper
+import src.DHTDataParser as dataParser
+import src.constants as c
+import src.LCDHelper as lcdHelper
 
 def init_lcd():
     lcd = LCDLibrary.Adafruit_CharLCDPlate()
