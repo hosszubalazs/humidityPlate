@@ -1,6 +1,5 @@
 import unittest
 import src.LCDHelper as LCDH
-import src.constants as c
 
 class TestHeatMap(unittest.TestCase):
 
