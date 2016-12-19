@@ -10,7 +10,7 @@ import src.LCDHelper as lcdHelper
 
 def init_lcd():
     lcd = LCDLibrary.Adafruit_CharLCDPlate()
-    lcd.set_color(c.LCD_COLD_BLUE)
+    lcd.set_color(c.LCD_COLD_BLUE[0],c.LCD_COLD_BLUE[1],c.LCD_COLD_BLUE[2])
     return lcd
 
 #If the script is run directly, let's start measurement
@@ -32,5 +32,6 @@ if __name__ == '__main__':
         LCD.message(H_MSG)
         print(H_MSG)
 
-        LCD.set_color(lcdHelper.map_heat_to_bgcolor(T))
+        targetColor= lcdHelper.map_heat_to_bgcolor(T)
+        LCD.set_color(targetColor[0],targetColor[1],targetColor[2])
         time.sleep(c.SECONDS_TO_SLEEP)
