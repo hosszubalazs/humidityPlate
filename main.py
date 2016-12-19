@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # Python 3
-import Adafruit_DHT.Adafruit_DHT as dht
+
+import Adafruit_DHT as dht
 import Adafruit_GPIO.Adafruit_CharLCD as LCDLibrary
 import time
 import DHTDataParser as dataParser
