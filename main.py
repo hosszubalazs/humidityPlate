@@ -25,7 +25,7 @@ if __name__ == '__main__':
         T_MSG = 'Temperature='+ dataParser.parseTemp(T)
 
         LCD.clear()
-        LCD.message('Temperature='+ T_MSG)
+        LCD.message(T_MSG)
         print(T_MSG)
 
         LCD.set_cursor(0, 1)
