@@ -15,7 +15,7 @@ def init_lcd():
 
 #If the script is run directly, let's start measurement
 if __name__ == '__main__':
-    LCD = lcdHelper.init_lcd()
+    LCD = init_lcd()
 
     print('Starting data query, every ' + str(c.SECONDS_TO_SLEEP) + ' seconds')
 
