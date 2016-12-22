@@ -1,5 +1,6 @@
 import unittest
 import src.LCDHelper as LCDH
+import src.constants as c
 
 class TestHeatMap(unittest.TestCase):
 
@@ -10,10 +11,10 @@ class TestHeatMap(unittest.TestCase):
         self.assertEqual(c.LCD_NICE_GREEN, LCDH.map_heat_to_bgcolor(18))
 
     def testNormalUpprt(self):
-        self.assertEqual(c.LCD_NICE_GREEN, LCDH.map_heat_to_bgcolor(22.9))
+        self.assertEqual(c.LCD_NICE_GREEN, LCDH.map_heat_to_bgcolor(25.9))
 
     def testHotLower(self):
-        self.assertEqual(c.LCD_HOT_RED, LCDH.map_heat_to_bgcolor(23))
+        self.assertEqual(c.LCD_HOT_RED, LCDH.map_heat_to_bgcolor(26))
 
 def main():
     unittest.main()
