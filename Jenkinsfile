@@ -1,5 +1,5 @@
 pipeline {
-  agent label:'has-docker', dockerfile: true
+  agent any
   environment {
     GIT_COMMITTER_NAME = "hosszubalazs"
     GIT_COMMITTER_EMAIL = "hbal0028@gmail.com"
