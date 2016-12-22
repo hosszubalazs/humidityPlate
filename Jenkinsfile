@@ -11,5 +11,11 @@ pipeline {
         sh 'python3 -m unittest discover -s test/ -p *test.py'
       }
     }
+    stage("Deployment") {
+      agent label:'weather'
+      steps {
+        sh 'cd /home/wtf1sh/projects/humidity; git pull'
+      }
+    }
   }
 }
