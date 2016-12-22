@@ -6,10 +6,9 @@ pipeline {
     ENV_VAL_POC = "ENV_VAl wokrs! Huzzah!"
   }
   stages {
-    stage("Build") {
+    stage("Test Unit") {
       steps {
-        sh 'echo "hello build stage"'
-        sh 'echo "$ENV_VAL_POC"'
+        sh 'python3 -m unittest discover -s test/ -p *test.py'
       }
     }
   }
