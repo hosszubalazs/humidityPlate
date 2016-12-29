@@ -20,7 +20,7 @@ pipeline {
      stage('SonarQube analysis') {
       agent label:'weather'
       steps {
-        sh 'gradle sonarqube'
+        sh 'cd /home/wtf1sh/projects/humidity; gradle sonarqube'
       }
   }
   }
