@@ -16,6 +16,12 @@ pipeline {
       steps {
         sh 'cd /home/wtf1sh/projects/humidity; git pull'
       }
+      steps {
+        sh 'gradle --version'
+      }
+      steps {
+        sh 'java -version'
+      }
     }
      stage('SonarQube analysis') {
       agent label:'weather'
