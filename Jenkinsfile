@@ -15,11 +15,7 @@ pipeline {
       agent label:'weather'
       steps {
         sh 'cd /home/wtf1sh/projects/humidity; git pull'
-      }
-      steps {
         sh 'gradle --version'
-      }
-      steps {
         sh 'java -version'
       }
     }
