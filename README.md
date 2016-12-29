@@ -5,6 +5,7 @@ Please instal :
 
 - https://learn.adafruit.com/adafruit-16x2-character-lcd-plus-keypad-for-raspberry-pi/usage
 
+!!This might not be needed since the wrapper is in place ? :/
 Upgrade Gradle 3.*+ (e.g. 3.2.1):
 http://wtanaka.com/node/8079
 

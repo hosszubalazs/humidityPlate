@@ -15,14 +15,14 @@ pipeline {
       agent label:'weather'
       steps {
         sh 'cd /home/wtf1sh/projects/humidity; git pull'
-        sh 'gradle --version'
+        sh './gradlew --version'
         sh 'java -version'
       }
     }
      stage('SonarQube analysis') {
       agent label:'weather'
       steps {
-        sh 'cd /home/wtf1sh/projects/humidity; gradle sonarqube'
+        sh 'cd /home/wtf1sh/projects/humidity; ./gradlew sonarqube'
       }
   }
   }
