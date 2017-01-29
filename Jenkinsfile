@@ -6,6 +6,12 @@ pipeline {
     ENV_VAL_POC = "ENV_VAl wokrs! Huzzah!"
   }
   stages {
+    stage("Version echo") {
+      steps {
+        sh 'python3 --Version'
+        sh 'gradle --Version'
+      }
+    }
     stage("Test Unit") {
       steps {
         sh 'python3 -m unittest discover -s test/ -p *test.py'
