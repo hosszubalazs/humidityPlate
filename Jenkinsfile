@@ -10,6 +10,7 @@ pipeline {
       steps {
         sh 'python3 --version'
         sh 'gradle --version'
+        sh './gradlew --version'
       }
     }
     stage("Test Unit") {
