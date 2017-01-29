@@ -8,8 +8,8 @@ pipeline {
   stages {
     stage("Version echo") {
       steps {
-        sh 'python3 --Version'
-        sh 'gradle --Version'
+        sh 'python3 --version'
+        sh 'gradle --version'
       }
     }
     stage("Test Unit") {
