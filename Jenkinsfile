@@ -8,6 +8,8 @@ pipeline {
   stages {
     stage("Version echo") {
       steps {
+        sh 'pwd'
+        sh 'ls -halt'
         sh 'python3 --version'
         sh 'gradle --version'
         sh './gradlew --version'
